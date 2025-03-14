@@ -17,7 +17,6 @@ describe('Browser Testing', () => {
       openBrowser(),
       clickButton(browserQuestions.acceptButton),
       checkPageTitle('Google'),
-      clickButton(browserQuestions.textArea),
       typeInField(browserQuestions.textArea, 'screenplay'),
       pressEnter(browserQuestions.textArea),
       Wait.until(checkPageTitle('screenplay - Google Search'), isPresent())
