@@ -23,13 +23,38 @@ export default defineConfig<SerenityOptions>({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? "75%" : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: "html",
+  reporter: [
+    ["line"],
+    ["html", { open: "never" }],
+    [
+      "@serenity-js/playwright-test",
+      {
+        crew: [
+          "@serenity-js/console-reporter",
+          [
+            "@serenity-js/core:ArtifactArchiver",
+            { outputDirectory: "screenshots/serenity" },
+          ],
+          // '@serenity-js/core:StreamReporter',  // use for debugging
+        ],
+      },
+    ],
+  ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
     baseURL: "https://www.google.com",
     /* Set headless: false to see the browser window */
-    headless: false,
+    headless: true,
+    crew: [
+      // Take screenshots of failed Serenity/JS Activities, such as a failed assertion, or o failed interaction
+      ["@serenity-js/web:Photographer", { strategy: "TakePhotosOfFailures" }],
+
+      // Take screenshots of all the Activities, both successful and failed
+      // [ '@serenity-js/web:Photographer', { strategy: 'TakePhotosOfInteractions' }],
+    ],
+    /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
+    // actionTimeout: 0,
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: "on-first-retry",
   },
