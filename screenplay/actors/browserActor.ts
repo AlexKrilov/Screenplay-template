@@ -1,18 +1,16 @@
-import { Actor, actorCalled } from '@serenity-js/core';
-import { EActorNames } from './eActors';
-import { Browser } from '@playwright/test';
-import { BrowseTheWebWithPlaywright } from '@serenity-js/playwright';
+import { Actor } from "@serenity-js/core";
+import { EActorNames } from "./eActors";
+
+type ActorFactory = (name: string) => Actor;
 
 export class BrowserActor {
-  private readonly _browserActor: Actor;
+	private readonly _browserActor: Actor;
 
-  constructor(browser: Browser) {
-    this._browserActor = actorCalled(EActorNames.BrowserActor).whoCan(
-      BrowseTheWebWithPlaywright.using(browser),
-    );
-  }
+	constructor(actorCalled: ActorFactory) {
+		this._browserActor = actorCalled(EActorNames.BrowserActor);
+	}
 
-  public get actor() {
-    return this._browserActor;
-  }
+	public get actor() {
+		return this._browserActor;
+	}
 }

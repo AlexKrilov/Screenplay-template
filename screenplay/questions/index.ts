@@ -1,1 +1,1 @@
-export * from './browserQuestions';
+export * from "./browserQuestions";
