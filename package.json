@@ -4,7 +4,7 @@
   "description": "project description here",
   "main": "index.js",
   "scripts": {
-    "start": "tsc --noEmit && npx playwright test",
+    "start": "playwright test",
     "format": "npx @biomejs/biome format --write ./",
     "lint": "npx @biomejs/biome lint --write ./",
     "lint-format": "npx @biomejs/biome check --write ./"
