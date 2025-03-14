@@ -1,26 +1,28 @@
 {
-	"name": "ui-template",
-	"version": "1.0.0",
-	"description": "project description here",
-	"main": "index.js",
-	"scripts": {
-		"start": "tsc --noEmit && npx playwright test",
-		"format": "npx @biomejs/biome format --write ."
-	},
-	"author": "Alex Krilov",
-	"keywords": ["screenplay pattern", "serenity-js", "playwright"],
-	"license": "ISC",
-	"dependencies": {
-		"@biomejs/biome": "latest",
-		"@playwright/test": "^1.50.1",
-		"@serenity-js/assertions": "^3.31.12",
-		"@serenity-js/console-reporter": "^3.31.12",
-		"@serenity-js/core": "^3.31.12",
-		"@serenity-js/playwright": "^3.31.12",
-		"@serenity-js/playwright-test": "^3.31.10",
-		"@serenity-js/web": "^3.31.10",
-		"@types/node": "^22.13.10",
-		"globals": "^16.0.0",
-		"typescript": "^5.8.2"
-	}
+  "name": "ui-template",
+  "version": "1.0.0",
+  "description": "project description here",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc --noEmit && npx playwright test",
+    "format": "npx @biomejs/biome format --write ./",
+    "lint": "npx @biomejs/biome lint --write ./",
+    "lint-format": "npx @biomejs/biome check --write ./"
+  },
+  "author": "Alex Krilov",
+  "keywords": ["screenplay pattern", "serenity-js", "playwright"],
+  "license": "ISC",
+  "dependencies": {
+    "@biomejs/biome": "latest",
+    "@playwright/test": "^1.50.1",
+    "@serenity-js/assertions": "^3.31.12",
+    "@serenity-js/console-reporter": "^3.31.12",
+    "@serenity-js/core": "^3.31.12",
+    "@serenity-js/playwright": "^3.31.12",
+    "@serenity-js/playwright-test": "^3.31.10",
+    "@serenity-js/web": "^3.31.10",
+    "@types/node": "^22.13.10",
+    "globals": "^16.0.0",
+    "typescript": "^5.8.2"
+  }
 }
