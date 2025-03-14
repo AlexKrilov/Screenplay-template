@@ -1,5 +1,5 @@
 export enum EActorNames {
-  BrowserActor = "Browser",
-  RestApiActor = "REST API",
-  DbActor = "Database",
+  BrowserActor = "Browser user",
+  RestApiActor = "REST API client",
+  DbActor = "DB user",
 }
