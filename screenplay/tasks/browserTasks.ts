@@ -18,7 +18,7 @@ export const typeInField = (
   searchTerm: string,
 ): Task =>
   Task.where(
-    the`#actor types search term ${searchTerm}`,
+    the`#actor types in ${item} - ${searchTerm}`,
     Enter.theValue(searchTerm).into(item),
   );
 
